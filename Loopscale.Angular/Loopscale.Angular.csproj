@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controller\indexController.js" />
     <Content Include="app\controller\loginController.js" />
     <Content Include="app\controller\ordersController.js" />
     <Content Include="app\pages\login.html" />

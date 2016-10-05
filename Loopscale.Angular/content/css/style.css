@@ -1,5 +1,10 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+body { padding-top: 60px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
+
 /****** LOGIN MODAL ******/
 .loginmodal-container {
   padding: 30px;
