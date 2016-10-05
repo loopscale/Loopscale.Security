@@ -1,24 +1,13 @@
 <!-- index.html -->
     <!DOCTYPE html>
-    <html ng-app="scotchApp">
+    <html ng-app="app">
     <head>
       <!-- SCROLLS -->
       <!-- load bootstrap and fontawesome via CDN -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-
-      <!-- SPELLS -->
-      <!-- load angular and angular route via CDN -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-
-        <!--Reference to app.js-->
-        <script src="app/app.js"></script>
-
-        <!--Referece to controllers-->
-        <script src="app/controller/mainController.js"></script>
-        <script src="app/controller/aboutController.js"></script>
-        <script src="app/controller/contactController.js"></script>
+      <link href="content/css/loading-bar.css" rel="stylesheet" />
+      <link href="content/css/style.css" rel="stylesheet" />
 
     </head>
     <body ng-controller="mainController">
@@ -28,13 +17,14 @@
             <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                    <a class="navbar-brand" href="/">ClearWater Recovery</a>
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
                     <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                    <li><a href="#login"><i class="fa fa-sign-in"></i> Login</a></li>
                 </ul>
             </div>
             </nav>
@@ -47,5 +37,28 @@
             <div ng-view></div>
         </div>
 
+        <!-- SPELLS -->
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/angular-route.min.js"></script>
+
+        <script src="scripts/angular-local-storage.min.js"></script>
+        <script src="scripts/loading-bar.min.js"></script>
+ 
+        <!--Reference to app.js-->
+        <script src="app/app.js"></script>
+
+        <!-- Load services -->
+        <script src="app/service/authInterceptorService.js?v=2"></script>
+        <script src="app/service/authService.js?v=2"></script>
+        <script src="app/service/ordersService.js?v=2"></script>
+        <script src="app/service/tokensManagerService.js?v=2"></script>
+
+        <!--Referece to controllers-->
+        <script src="app/controller/mainController.js"></script>
+        <script src="app/controller/aboutController.js"></script>
+        <script src="app/controller/contactController.js"></script>
+        <script src="app/controller/loginController.js?v=2"></script>
+        <script src="app/controller/ordersController.js"></script>
+      
     </body>
     </html>

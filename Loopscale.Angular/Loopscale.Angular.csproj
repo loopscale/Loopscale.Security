@@ -94,10 +94,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controller\loginController.js" />
+    <Content Include="app\controller\ordersController.js" />
+    <Content Include="app\pages\login.html" />
+    <Content Include="app\pages\orders.html" />
+    <Content Include="app\service\authInterceptorService.js" />
+    <Content Include="app\service\authService.js" />
+    <Content Include="app\service\ordersService.js" />
+    <Content Include="app\service\tokensManagerService.js" />
+    <Content Include="content\css\bootstrap.css" />
+    <Content Include="content\css\bootstrap.min.css" />
+    <Content Include="content\css\font-awesome.css" />
+    <Content Include="content\css\loading-bar.css" />
+    <Content Include="content\css\loading-bar.min.css" />
+    <Content Include="content\css\style.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\angular-local-storage.js" />
+    <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\angular-local-storage.min.js.map" />
+    <Content Include="content\css\font-awesome.css.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
+    <Content Include="scripts\angular.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,14 +138,25 @@
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="app\app.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular-storage.js" />
+    <Content Include="scripts\angular-storage.min.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\authComplete.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\loading-bar.js" />
+    <Content Include="scripts\loading-bar.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

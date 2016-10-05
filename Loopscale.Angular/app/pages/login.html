@@ -1,0 +1,26 @@
+﻿<!-- home.html -->
+<div class="jumbotron text-center">
+    <h1>Login Page</h1>
+
+    <p>Please enter username and password.</p>
+</div>
+
+<form role="form">
+    <div class="row">
+        <div class="col-md-2">
+            &nbsp;
+        </div>
+        <div class="col-md-2">
+            <h2 class="form-login-heading">Login</h2>
+            <input type="text" class="form-control" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+            <input type="password" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
+            <button class="btn btn-info" type="submit" data-ng-click="login()">Login</button>
+            <div data-ng-hide="message == ''" class="alert alert-danger">
+                {{ message }}
+            </div>
+        </div>
+        <div class="col-md-2">
+            &nbsp;
+        </div>
+    </div>
+</form>
