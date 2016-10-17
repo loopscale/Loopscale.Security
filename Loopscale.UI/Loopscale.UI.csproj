@@ -98,6 +98,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\aboutController.js" />
     <Content Include="app\controllers\contactController.js" />
+    <Content Include="app\controllers\dashboardController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\mainController.js" />
@@ -106,6 +107,8 @@
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
@@ -113,6 +116,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="partials\about.html" />
+    <Content Include="partials\admin\sidebar.html" />
     <Content Include="partials\contact.html" />
     <Content Include="partials\dashboard.html" />
     <Content Include="partials\home.html" />
@@ -128,9 +132,18 @@
     <Content Include="scripts\jquery.min.js" />
     <Content Include="scripts\loading-bar.js" />
     <Content Include="scripts\loading-bar.min.js" />
+    <Content Include="scripts\sb-admin-2.js" />
+    <Content Include="scripts\sb-admin-2.min.js" />
+    <Content Include="scripts\vendor\font-awesome.css" />
+    <Content Include="scripts\vendor\font-awesome.min.css" />
+    <Content Include="scripts\vendor\metisMenu.css" />
+    <Content Include="scripts\vendor\metisMenu.js" />
+    <Content Include="scripts\vendor\metisMenu.min.css" />
+    <Content Include="scripts\vendor\metisMenu.min.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
     <Content Include="scripts\angular-local-storage.min.js.map" />
+    <Content Include="scripts\vendor\font-awesome.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

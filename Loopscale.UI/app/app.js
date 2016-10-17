@@ -1,4 +1,6 @@
-﻿// app.js
+﻿/// <reference path="C:\Users\Loopscale\documents\visual studio 2015\Projects\Loopscale.Security\Loopscale.UI\scripts/angular.js" />
+
+// app.js
 // create the module and name it scotchApp
 // also include ngRoute for all our routing needs
 var app = angular.module('app', ['ui.router', 'LocalStorageModule', 'angular-loading-bar']);
@@ -27,6 +29,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/orders',
             templateUrl: 'partials/orders.html',
             controller: 'ordersController'
+
+        })
+
+         // route for the dashboard page
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'partials/dashboard.html',
+            controller: 'dashboardController'
         })
 
         // route for the about page
@@ -40,9 +50,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('contact', {
             url: '/contact',
             templateUrl: 'partials/contact.html',
-            controller: 'contactController'
+            controller: 'contactController',
         });
-
 });
 
 // create the controller and inject Angular's $scope
@@ -52,6 +61,7 @@ app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'
 });
+
 
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');

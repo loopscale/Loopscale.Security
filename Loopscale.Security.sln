@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loopscale.Angular", "Loopsc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loopscale.UI", "Loopscale.UI\Loopscale.UI.csproj", "{7141A71E-2421-417F-897B-39B584930018}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{2CD40E63-0B2D-4E4C-AC55-807F6D0A5EAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7141A71E-2421-417F-897B-39B584930018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7141A71E-2421-417F-897B-39B584930018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7141A71E-2421-417F-897B-39B584930018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD40E63-0B2D-4E4C-AC55-807F6D0A5EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD40E63-0B2D-4E4C-AC55-807F6D0A5EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD40E63-0B2D-4E4C-AC55-807F6D0A5EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD40E63-0B2D-4E4C-AC55-807F6D0A5EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

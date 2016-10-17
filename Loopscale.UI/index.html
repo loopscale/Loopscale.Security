@@ -7,9 +7,21 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
     <link data-require="bootstrap-css@3.x" data-semver="3.0.3" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- Bootstrap 
+    <link href="Content/bootstrap.css" rel="stylesheet" />-->
     
-    <!-- Bootstrap -->
-    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <!-- MetisMenu CSS -->
+    <link href="scripts/vendor/metisMenu.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="Content/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom Fonts 
+    <link href="scripts/vendor/font-awesome.min.css" rel="stylesheet" />
+    -->
+
     <link href="Content/style.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-controller="mainController">
     <!-- NAVIGATION -->
     <!-- HEADER AND NAVBAR -->
     <header>
@@ -38,6 +50,7 @@
                         <li><a ui-sref="about"><i class="fa fa-shield"></i> About</a></li>
                         <li><a ui-sref="contact"><i class="fa fa-comment"></i> Contact</a></li>
                         <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                        <li data-ng-hide="!authentication.isAuth"><a ui-sref="dashboard">Dashboard</a></li>
                         <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()"><i class="fa fa-sign-out"></i> Logout</a></li>
                         <li data-ng-hide="authentication.isAuth"> <a ui-sref="login"><i class="fa fa-sign-in"></i> Login</a></li>
                     </ul>
@@ -55,11 +68,19 @@
     </div>
 
     <!--references to JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
     <!-- SPELLS -->
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-ui-router.js"></script>
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="scripts/vendor/metisMenu.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="scripts/sb-admin-2.js"></script>
 
     <script src="app/app.js"></script>
 
@@ -76,6 +97,7 @@
     <script src="app/controllers/loginController.js?v=2"></script>
     <script src="app/controllers/ordersController.js"></script>
     <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/dashboardController.js"></script>
 
 </body>
 </html>
