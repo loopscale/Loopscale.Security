@@ -1,5 +1,4 @@
-﻿'use strict'
+﻿'use strict';
+app.controller('homeController', ['$scope', function ($scope) {
 
-app.controller('homeController', function ($scope) {
-    $scope.message = 'Home Page. This is just a demo.';
-});
+}]);

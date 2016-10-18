@@ -95,12 +95,64 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\aboutController.js" />
+    <Content Include="app\controllers\associateController.js" />
+    <Content Include="app\controllers\contactController.js" />
+    <Content Include="app\controllers\dashboardController.js" />
+    <Content Include="app\controllers\homeController.js" />
+    <Content Include="app\controllers\indexController.js" />
+    <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\mainController.js" />
+    <Content Include="app\controllers\ordersController.js" />
+    <Content Include="app\controllers\refreshController.js" />
+    <Content Include="app\controllers\signupController.js" />
+    <Content Include="app\controllers\tokensManagerController.js" />
+    <Content Include="app\services\authInterceptorService.js" />
+    <Content Include="app\services\authService.js" />
+    <Content Include="app\services\ordersService.js" />
+    <Content Include="app\services\tokensManagerService.js" />
+    <Content Include="app\views\associate.html" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\views\login.html" />
+    <Content Include="app\views\orders.html" />
+    <Content Include="app\views\refresh.html" />
+    <Content Include="app\views\signup.html" />
+    <Content Include="app\views\tokens.html" />
+    <Content Include="content\css\bootstrap.css" />
+    <Content Include="content\css\bootstrap.min.css" />
+    <Content Include="content\css\font-awesome.css" />
+    <Content Include="content\css\loading-bar.css" />
+    <Content Include="content\css\loading-bar.min.css" />
+    <Content Include="content\css\site.css" />
+    <Content Include="content\css\social-buttons.css" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\angular-local-storage.js" />
+    <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular-ui-router.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\authComplete.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\loading-bar.js" />
+    <Content Include="scripts\loading-bar.min.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="scripts\angular-local-storage.min.js.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
     <Content Include="scripts\angular.min.js.map" />
+    <Content Include="content\css\font-awesome.css.map" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,23 +162,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\controllers\dashboardController.js" />
-    <Content Include="app\controllers\homeController.js" />
-    <Content Include="app\controllers\mainController.js" />
-    <Content Include="app\controllers\loginController.js" />
     <Content Include="app\partials\dashboard.html" />
     <Content Include="app\partials\login.html" />
-    <Content Include="app\services\APIInterceptor.js" />
-    <Content Include="app\services\LoginService.js" />
     <Content Include="index.html" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="scripts\angular-local-storage.js" />
-    <Content Include="scripts\angular-local-storage.min.js" />
-    <Content Include="scripts\angular-mocks.js" />
-    <Content Include="scripts\angular-storage.js" />
-    <Content Include="scripts\angular.js" />
-    <Content Include="scripts\angular.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

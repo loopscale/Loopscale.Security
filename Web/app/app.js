@@ -1,32 +1,55 @@
 ﻿/// <reference path="C:\Users\Loopscale\documents\visual studio 2015\Projects\Loopscale.Security\Web\scripts/angular.js" />
 
-var app = angular.module('app', ['LocalStorageModule', 'ui.router']);
+var app = angular.module('AngularAuthApp', ['ui.router', 'LocalStorageModule', 'angular-loading-bar']);
 
-app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('home');
+
     $stateProvider
-        .state('login', {
-            url: '/login',
-            templateUrl: 'app/partials/login.html',
-            controller: 'loginController',
-        })
-        .state('dashboard', {
-            url: '/dashboard',
-            templateUrl: 'app/partials/dashboard.html',
-            controller: 'dashboardController',
-        });
+    .state('home', {
+        url: '/home',
+        controller: 'homeController',
+        templateUrl: '/app/views/home.html'
+    })
 
-    $urlRouterProvider.otherwise('login');
+    .state('login', {
+        url: '/login',
+        controller: 'loginController',
+        templateUrl: '/app/views/login.html'
+    })
 
-   $httpProvider.interceptors.push('APIInterceptor');
-})
+    .state('signup', {
+        url: '/signup',
+        controller: 'signupController',
+        templateUrl: '/app/views/signup.html'
+    })
 
-//app.run(['$rootScope', '$location', 'authProvider', function ($rootScope, $location, authProvider) {
-//    $rootScope.isAuthenticated = true;
-//}]);
+     .state('refresh', {
+         url: '/refresh',
+         controller: 'refreshController',
+         templateUrl: '/app/views/refresh.html'
+     })
+
+    .state('orders', {
+        url: '/orders',
+        controller: 'ordersController',
+        templateUrl: '/app/views/orders.html'
+    });
+
+});
 
 // create the controller and inject Angular's $scope
-var serviceBaseUrl = 'http://localhost:52926/';
+var serviceBase = 'http://localhost:52926/';
 //var serviceBase = 'http://ngauthenticationapi.azurewebsites.net/';
-app.constant('constantFactory', {
-    apiServiceBaseUri: serviceBaseUrl
+app.constant('ngAuthSettings', {
+    apiServiceBaseUri: serviceBase,
+    clientId: 'ngAuthApp'
 });
+
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
+
+app.run(['authService', function (authService) {
+    authService.fillAuthData();
+}]);
