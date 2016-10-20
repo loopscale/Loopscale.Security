@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
         <div class="container">
             <div class="navbar-header">
@@ -26,23 +25,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li data-ng-hide="!authentication.isAuth"><a ui-sref="#">Welcome {{authentication.userName}}</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a ui-sref="orders">My Orders</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a ui-sref="dashboard">My Dashboard</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a ui-sref="refresh">Refresh Token</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a ui-sref="#" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#" data-ng-click="logOut()">Logout</a></li>
                     <li data-ng-hide="authentication.isAuth"> <a ui-sref="login">Login</a></li>
                     <li data-ng-hide="authentication.isAuth"> <a ui-sref="signup">Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="page-header text-center">
-                <h1>AngularJS Authentication</h1>
-            </div>
-            <p>AngularJS Application which uses OAuth Bearer Token for authentication and implements Refresh Tokens. The backend API is built using ASP.NET Web API 2, OWIN middleware, and ASP.NET Identity.</p>
-        </div>
-    </div>
-
+   
     <div class="container">
         <div data-ng-view="">
         </div>
@@ -53,7 +45,7 @@
 
     </div>
 
-    <div id="footer">
+    <!--<div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -64,14 +56,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+
+    <div class="navbar navbar-fixed-bottom" ng-include src="'/app/views/common/footer.html'"></div>
+
 
     <!-- 3rd party libraries -->
     <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
+    <script src="scripts/bootstrap.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
     <script src="scripts/angular-ui-router.js"></script>
@@ -93,6 +90,7 @@
     <script src="app/controllers/homeController.js?v=2"></script>
     <script src="app/controllers/loginController.js?v=2"></script>
     <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/dashboardController.js"></script>
     <script src="app/controllers/ordersController.js?v=2"></script>
     <script src="app/controllers/refreshController.js?v=2"></script>
     <script src="app/controllers/tokensManagerController.js?v=2"></script>

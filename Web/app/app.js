@@ -30,6 +30,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
          templateUrl: '/app/views/refresh.html'
      })
 
+    .state('dashboard', {
+        url: '/dashboard',
+        controller: 'dashboardController',
+        templateUrl: '/app/views/dashboard.html'
+    })
+
     .state('orders', {
         url: '/orders',
         controller: 'ordersController',
