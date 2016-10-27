@@ -1,4 +1,4 @@
-﻿using Loopscale.Authentication.API.Models;
+﻿
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,17 +7,22 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Loopscale.DataAccess;
+using Loopscale.DataAccess.Repositories;
+using Loopscale.Shared.ViewModels;
 
 namespace Loopscale.Authentication.API.Controllers
 {
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private AuthRepository _repo = null;
+        private UserRepository _userRepo = null;
+        private AuthRepository _authRepo = null;
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+            _authRepo = new AuthRepository();
+            _userRepo = new UserRepository();
         }
 
         // POST api/Account/Register
@@ -30,7 +35,7 @@ namespace Loopscale.Authentication.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _repo.RegisterUser(userModel);
+            IdentityResult result = await _authRepo.RegisterUser(userModel);
 
             IHttpActionResult errorResult = GetErrorResult(result);
 
@@ -46,7 +51,7 @@ namespace Loopscale.Authentication.API.Controllers
         {
             if (disposing)
             {
-                _repo.Dispose();
+                _authRepo.Dispose();
             }
 
             base.Dispose(disposing);

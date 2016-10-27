@@ -36,6 +36,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/app/views/dashboard.html'
     })
 
+     .state('form1', {
+         url: '/form1',
+         //controller: 'dashboardController',
+         templateUrl: '/app/views/forms/dashboard.html'
+     })
+
     .state('orders', {
         url: '/orders',
         controller: 'ordersController',

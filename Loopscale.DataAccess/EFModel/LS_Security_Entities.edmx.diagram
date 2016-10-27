@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1e0042bf1aa48e5ae14155b981c9f55" Name="Diagram1">
+        <EntityTypeShape EntityType="LS_SecurityModel.AspNetRoleClaim" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.AspNetRole" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.AspNetUser" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.Profile" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.ProfileTypeMaster" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.RelationshipMaster" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_SecurityModel.StateMaster" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="LS_SecurityModel.FK_IdentityRoleClaim_string__IdentityRole_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_IdentityUserClaim_string__ApplicationUser_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_IdentityUserLogin_string__ApplicationUser_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_Profile_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_OfficeState_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_ProfileTypeMaster_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_RelationshipMaster_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.FK_StateMaster_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="LS_SecurityModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LS_SecurityModel.Client" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LS_SecurityModel.RefreshToken" Width="1.5" PointX="2.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

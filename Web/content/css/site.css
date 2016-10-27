@@ -4,6 +4,7 @@
 .main-page {
     padding-top: 45px;
     padding-left: 200px;
+    padding-bottom:300px;
 }
 
 .modal-footer {
@@ -26,7 +27,6 @@
     font-family: verdana;
     font-size: 12px;
     font-weight: 200;
-    background-color: black;
     position: fixed;
     top: 0px;
     width: 200px;
@@ -198,8 +198,7 @@ body {
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 
 .footer1 {
-    background-color:black;
-    padding-top: 40px;
+    padding-top: 10px;
     padding-right: 0;
     padding-bottom: 20px;
     padding-left: 0; /*	border-top-width: 4px;
@@ -265,11 +264,10 @@ body {
     line-height: 20px;
     margin: 0 0 15px;
     text-transform: uppercase;
-    font-family: 'Fjalla One', sans-serif;
 }
 
 .footerp p {
-    color: #fff;
+    /*color: #fff;*/
     font-size:10px;
 }
 
@@ -313,15 +311,14 @@ body {
     padding: 0px;
 }
 
-
 .footer-bottom {
-    background-color: black;
     min-height: 30px;
     width: 100%;
 }
 
 .copyright {
     color: #fff;
+    font-size:8px;
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
@@ -329,6 +326,7 @@ body {
 
 .design {
     color: #fff;
+    font-size:8px;
     line-height: 30px;
     min-height: 30px;
     padding: 7px 0;
@@ -339,7 +337,27 @@ body {
         color: #fff;
     }
 
-
 /************************************************************
 *************************Footer******************************
 *************************************************************/
+
+/**********************Hyperlink**************/
+/* unvisited link */
+a:link {
+    text-decoration:none;
+}
+
+/* visited link */
+a:visited {
+    text-decoration:none;
+}
+
+/* mouse over link */
+a:hover {
+    text-decoration:none;
+}
+
+/* selected link */
+a:active {
+    text-decoration:none;
+}
