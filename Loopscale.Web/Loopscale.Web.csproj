@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\admin\dashboardController.js" />
+    <Content Include="app\controllers\common\indexController.js" />
     <Content Include="app\views\admin\dashboard.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">

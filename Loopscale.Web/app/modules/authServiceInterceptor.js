@@ -17,7 +17,7 @@
             console.log("authServiceInterceptor -- inside auth interceptor");
             //console.log(authData);
             config.headers.Authorization = 'Bearer ' + authData.token;
-            console.log(authData.token);
+            //console.log(authData.token);
         }
         else
         {
