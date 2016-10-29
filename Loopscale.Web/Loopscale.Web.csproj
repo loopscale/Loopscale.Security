@@ -98,6 +98,8 @@
     <Content Include="app\controllers\admin\dashboardController.js" />
     <Content Include="app\controllers\common\indexController.js" />
     <Content Include="app\views\admin\dashboard.html" />
+    <Content Include="app\views\common\footer.html" />
+    <Content Include="app\views\common\header.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
