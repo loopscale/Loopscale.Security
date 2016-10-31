@@ -1,4 +1,4 @@
 ﻿'use strict';
-app.controller('dashboardController', ['$scope', 'loginService', function ($scope, loginService) {
-   console.log('Dashboard - ' + $scope.firstName);
+app.controller('dashboardController', ['$scope', '$location', 'localStorageService', 'loginService', function ($scope, $location, localStorageService, loginService) {
+   
 }]);

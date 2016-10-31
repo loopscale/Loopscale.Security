@@ -11,8 +11,8 @@ body {
     /* Margin bottom by footer height */
     margin-top:55px;
     margin-bottom: 60px;
-      padding-top: 40px;
-  xpadding-bottom: 10px;
+    padding-top: 40px;
+    padding-bottom: 10px;
 }
 
 /************************************************************
@@ -165,6 +165,65 @@ body {
 /************************************************************
 *************************Footer******************************
 *************************************************************/
+
+
+/*Footer*/
+#push,
+.footer {
+    height: 60px;
+}
+/*.footer {
+        background-color: #f5f5f5;
+      }*/
+
+.footer, .push {
+    height: 60px; /* .push must be the same height as .footer */
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+
+/* ------------- FOOTER---------*/
+.footer {
+    /*background-color: #ffffff;*/
+    /*bottom: 0;
+    height: 50px;
+    width: 100%;*/
+    /*border-top: #d9e2e1 solid thin;*/
+    /*font-size: 1em;*/
+    /*position:absolute*/
+}
+
+    .footer ul {
+        list-style-type: none;
+        margin: 20px 0;
+    }
+
+        .footer ul li {
+            display: block;
+            float: left;
+            padding-right: 15px;
+            color: #324b61;
+        }
+
+
+footer .text-muted {
+    margin: 10px 0;
+    color: #CCC;
+}
+
+footer .text-red {
+    margin: 10px 0;
+    color: #ff6c49;
+}
+
+
+/*Footer*/
 
 /**********************Hyperlink**************/
 /* unvisited link */

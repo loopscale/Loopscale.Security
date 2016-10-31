@@ -1,8 +1,7 @@
 ﻿/// <reference path="C:\Users\Loopscale\documents\visual studio 2015\Projects\Loopscale.Security\Web\scripts/angular.js" />
 'use strict';
 
-var app = angular.module('app', ['ui.router', 'LocalStorageModule', 'angular-loading-bar']);
-
+var app = angular.module('app', ['ui.router', 'LocalStorageModule', 'angular-loading-bar', 'ngCookies']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('login');
@@ -44,6 +43,16 @@ app.constant('CCMSettings', {
 });
 
 app.config(function ($httpProvider) {
+    console.log("inside app");
+    console.log(baseUrl);
+
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
+    $httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.headers.Accept = "application/json";
+
     $httpProvider.interceptors.push('authServiceInterceptor');
 });
 
@@ -53,34 +62,40 @@ app.config(function ($httpProvider) {
 
 app.run(['$rootScope', '$location', 'authProvider', function ($rootScope, $location, authProvider) {
 
+        console.log("inside app run");
+
         $rootScope.showUserIcon = false;
         $rootScope.alerts = [];
+
         $rootScope.logout = function () {
+            console.log("inside app run 2");
             authProvider.logout();
             $location.path("/");
         }
 
         $rootScope.closeAlert = function (index) {
+            console.log("inside app run 3");
             $rootScope.alerts.splice(index, 1);
         };
         $rootScope.login = function () {
+            console.log("inside app run ");
             $location.path("/");
         }
         $rootScope.navigate = function (route) {
             $location.path(route);
         }
-        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
             $rootScope.spinner = false;
             $rootScope.$errorMessage = '';
             $rootScope.alerts = [];
             $rootScope.routeloading = true;
             var routeController = null;
 
-            //console.log('typeof undefined: ' + typeof (next.$$route.controller));
-
-            if (typeof (next.$$route.controller) != 'undefined') {
-                routeController = next.$$route.controller.toLowerCase();
-            };
+            if (toState.controller != 'undefined')
+            {
+                routeController = toState.controller.toLowerCase();
+            }
 
             if (routeController === "logincontroller") {
                 $rootScope.login = true;
@@ -112,13 +127,13 @@ app.run(['$rootScope', '$location', 'authProvider', function ($rootScope, $locat
             //console.log(event, next, current)
         })
 
-        $rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
-            $rootScope.routeloading = false;
-        });
+        //$rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
+        //    $rootScope.routeloading = false;
+        //});
 
-        $rootScope.$on("$routeChangeError", function (event, current, previous, rejection) {
-            $rootScope.routeloading = false;
-        });
+        //$rootScope.$on("$routeChangeError", function (event, current, previous, rejection) {
+        //    $rootScope.routeloading = false;
+        //});
     }]);
 
 

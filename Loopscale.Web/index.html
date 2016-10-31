@@ -16,51 +16,70 @@
 </head>
 <body data-ng-app="app">
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-hide="!isAuth" data-ng-controller="indexController" ng-include src="'/app/views/common/header.html'"></div>
+    <div ng-show="!$root.login" ng-include src="'/app/views/common/header.html'"></div>
 
-        <!-- MAIN CONTENT -->
-        <div class="container">
-            <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-            <div ui-view></div>
+    <div id="wrap">
+
+        <div class="container" role="main">
+            <div ng-if="routeloading" class="viewloader">
+                <div class="viewProgressbar"></div>
+                <div class="viewProgressbar"></div>
+                <div class="viewProgressbar"></div>
+                <div class="viewProgressbar"></div>
+                <div class="viewProgressbar"></div>
+            </div>
+            <div>
+                <div id="alert-manager" class="hide" ng-class="{show:alerts.length>0}">
+                    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+             <div ui-view></div>
 
         </div>
 
-    <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom" data-ng-hide="!isAuth" ng-include src="'/app/views/common/footer.html'"></div>
 
-        <!--LIBRARIES-->
-        <!--jQuery-->
-        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-        <!--CDN - Bootstrap Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!--CDN - Angular -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-        <script src="scripts/angularjs/angular-cookies.js"></script>
-        <!--CDN - UI Router-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
-        <!--Angular Local Storage-->
-        <script src="scripts/angular-local-storage.min.js"></script>
-        <!--Loading bar-->
-        <script src="scripts/loading-bar.min.js"></script>
+        <div id="push"></div>
+    </div>
 
-        <!--Angular app.js-->
-        <script src="app/app.js"></script>
+    <footer class="footer navbar-default navbar-fixed-bottom" ng-include src="'/app/views/common/footer.html'"></footer>
 
-        <!-- Load services -->
-        <script src="app/services/common/loginService.js"></script>
+    <!--LIBRARIES-->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <!--CDN - Bootstrap Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--CDN - Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="scripts/angularjs/angular-cookies.js"></script>
+    <!--CDN - UI Router-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <!--Angular Local Storage-->
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <!--Loading bar-->
+    <script src="scripts/loading-bar.min.js"></script>
 
-        <!-- Load controllers -->
-        <script src="app/controllers/common/indexController.js"></script>
-        <script src="app/controllers/common/loginController.js"></script>
-        <script src="app/controllers/user/userController.js"></script>
-        <script src="app/controllers/admin/dashboardController.js"></script>
+    <!--Angular app.js-->
+    <script src="app/app.js"></script>
 
-        <!-- Load modules -->
-        <script src="app/modules/authProvider.js"></script>
-        <script src="app/modules/authServiceInterceptor.js"></script>
-        <script src="app/modules/constantFactory.js"></script>
+    <!-- Load services -->
+    <script src="app/services/common/commonService.js"></script>
+    <script src="app/services/common/loginService.js"></script>
 
-        <!-- Load custom filters -->
-        <!-- Load custom directives -->
+    <!-- Load controllers -->
+    <script src="app/controllers/common/commonController.js"></script>
+    <script src="app/controllers/common/loginController.js"></script>
+    <script src="app/controllers/user/userController.js"></script>
+    <script src="app/controllers/admin/dashboardController.js"></script>
+
+    <!-- Load modules -->
+    <script src="app/modules/authProvider.js"></script>
+    <script src="app/modules/authServiceInterceptor.js"></script>
+    <script src="app/modules/constantFactory.js"></script>
+
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
 
 </body>
 </html>

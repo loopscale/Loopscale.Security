@@ -1,16 +1,17 @@
-﻿    'use strict';
-   app.factory('authServiceInterceptor', authInterceptorService);
+﻿'use strict';
 
-    authInterceptorService.$inject = ['$q', '$injector','$location', 'localStorageService'];
+app.factory('authServiceInterceptor', authInterceptorService);
 
-    function authInterceptorService($q, $injector, $location, localStorageService) {
+authInterceptorService.$inject = ['$q', '$injector', '$location', 'localStorageService'];
+
+function authInterceptorService($q, $injector, $location, localStorageService) {
     var authInterceptorServiceFactory = {};
 
     var _request = function (config) {
 
         config.headers = config.headers || {};
 
-       var authData = localStorageService.get('authorizationData');
+        var authData = localStorageService.get('authorizationData');
         //console.log("authServiceInterceptor -- outside auth interceptor");
         //console.log(authData);
         if (authData) {
@@ -19,10 +20,8 @@
             config.headers.Authorization = 'Bearer ' + authData.token;
             //console.log(authData.token);
         }
-        else
-        {
+        else {
             console.log("localStorageService.get('authorizationData') is null");
-            $location.path('login');
         }
 
         return config;
@@ -45,4 +44,4 @@
     authInterceptorServiceFactory.responseError = _responseError;
 
     return authInterceptorServiceFactory;
-    }
+}

@@ -14,8 +14,8 @@ function commonService($http, loginService, constantFactory, $q, $rootScope, aut
         Logout: logOut,
         showSuccessMsg: showSuccessMsg,
         showErrorMsg: showErrorMsg,
-        setRegistrationAction: setRegistrationAction,
-        getRegistrationAction: getRegistrationAction,
+        //setRegistrationAction: setRegistrationAction,
+        //getRegistrationAction: getRegistrationAction,
     };
 
     return service;
