@@ -96,8 +96,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\admin\dashboardController.js" />
+    <Content Include="app\controllers\admin\employeeController.js" />
+    <Content Include="app\controllers\admin\employeeProfileRegistrationConfirmation.js" />
     <Content Include="app\controllers\common\commonController.js" />
+    <Content Include="app\services\admin\employeeService.js" />
     <Content Include="app\views\admin\dashboard.html" />
+    <Content Include="app\views\admin\employeeprofile.html" />
+    <Content Include="app\views\admin\employeeprofileregistrationconfirmation.html" />
     <Content Include="app\views\admin\index.html" />
     <Content Include="app\views\admin\sidebar.html" />
     <Content Include="app\views\common\footer.html" />
@@ -181,9 +186,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\services\admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

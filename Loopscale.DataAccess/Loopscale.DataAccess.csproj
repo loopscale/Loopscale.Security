@@ -159,8 +159,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthRespository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\Interfaces\IConfigRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployee.cs" />
     <Compile Include="Repositories\Interfaces\IGenericRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
