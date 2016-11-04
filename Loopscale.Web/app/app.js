@@ -19,6 +19,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/app/views/login.html'
     })
 
+     .state('register', {
+         url: '/register',
+         controller: 'userController',
+         templateUrl: '/app/views/registration.html'
+     })
+
     .state('profile', {
         url: '/profile',
         controller: 'employeeController',
@@ -112,12 +118,12 @@ app.run(['$rootScope', '$location', 'authProvider', function ($rootScope, $locat
             console.log("app.js --> routerController is:");
             console.log(routeController);
 
-            if (routeController === "logincontroller") {
+            if (routeController === "logincontroller" || routeController == "userController") {
                 //$rootScope.showTopNav = false;
                 //$rootScope.showFooter = false;
                 $rootScope.authenticated = false;
                 // authProvider.logout()
-
+                console.log('routerController - userController');
             } else {
                 //$rootScope.showTopNav = true;
                 //$rootScope.showFooter = true;

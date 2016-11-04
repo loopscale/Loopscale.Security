@@ -198,6 +198,7 @@
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Config\ConfigProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />

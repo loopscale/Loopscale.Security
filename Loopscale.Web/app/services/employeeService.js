@@ -66,28 +66,6 @@ function employeeService($http, constantFactory) {
         $http(req).then(successCallback, errorCallback);
     };
 
-    //function updateVisitorToRegistrant(id, successCallback, errorCallback) {
-
-    //    //var data = {
-    //    //    id: id
-    //    //};
-
-    //    var postUrl = baseUrl + "api/users/UpdateVisitorToRegistrant";
-    //    var req = {
-    //        method: 'POST',
-    //        url: postUrl,
-    //        headers: {
-    //            'Content-Type': "application/json"
-    //        },
-    //        xhrFields: {
-    //            withCredentials: true
-    //        },
-    //        data: id
-    //    }
-
-    //    $http(req).then(successCallback, errorCallback);
-    //};
-
     function createProfile(profile, successCallback, errorCallback) {
 
         var data = {

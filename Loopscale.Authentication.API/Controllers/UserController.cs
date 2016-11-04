@@ -1,5 +1,5 @@
-﻿using Beginnings.Services.ServiceHelpers;
-using Loopscale.Authentication.API.ModelFactory;
+﻿using Loopscale.Authentication.API.ModelFactory;
+using Loopscale.Authentication.API.ServiceHelpers;
 using Loopscale.DataAccess.EFModel;
 using Loopscale.DataAccess.Repositories;
 using Loopscale.DataAccess.Repositories.Interfaces;
@@ -21,12 +21,7 @@ namespace Loopscale.Authentication.API.Controllers
     [RoutePrefix("api/Users")]
     public class UserController : BaseController
     {
-        private readonly IUserRepository _profileRepo = new UserRepository();   
-
-        public UserController()
-        {
-
-        }
+        private readonly IUserRepository _profileRepo = new UserRepository();
 
         [HttpGet]
         [Route("GetAllUsers")]

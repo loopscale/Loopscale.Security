@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using Loopscale.Shared.Helpers;
 
-namespace Beginnings.Services.ServiceHelpers
+namespace Loopscale.Authentication.API.ServiceHelpers
 {
     public static class ProfileHelper
     {

@@ -5,9 +5,9 @@
         .module('app')
         .controller('userController', userController);
 
-    userController.$inject = ['$rootScope', '$routeParams','$scope', 'userService', 'loginService', 'authProvider', 'constantFactory', '$location', 'commonService'];
+    userController.$inject = ['$rootScope', '$stateParams', '$scope', 'userService', 'loginService', 'authProvider', 'constantFactory', '$location', 'commonService'];
 
-    function userController($rootScope, $routeParams,$scope, userService, loginService, authProvider, constantFactory, $location, commonService) {
+    function userController($rootScope, $stateParams, $scope, userService, loginService, authProvider, constantFactory, $location, commonService) {
 
         activate();
 
@@ -21,23 +21,9 @@
             $scope.Email = "";
             $scope.Mobile = "";
             $scope.$isUserNameExists = false;
-            $scope.$isEmailExists = false;
-            $scope.$isInvalidCaptcha = false;
-
-            $scope.action = $routeParams.action;
-
-            userService.getCaptchaImage(captchaSuccessCallback, captchaErrorCallback)
-        }
-
-        function captchaSuccessCallback(d) {
-            if (d != null) {
-                $scope.captchaImagePath = "data:image/png;base64," + d.data.captchaText;
-                $scope.captchaOriginalText = d.data.captchaOriginalText;
-            }
-        }
-        function captchaErrorCallback(d) {
-            console.log(d);
-
+            $scope.$isEmailExists = false
+            
+            $scope.action = $stateParams.action;
         }
 
         $scope.clear = function () {
@@ -50,25 +36,8 @@
             $scope.Mobile = "";
             $scope.$isUserNameExists = false;
             $scope.$isEmailExists = false;
-            $scope.$isInvalidCaptcha = false;
             $scope.UserForm.$setPristine()
             $scope.UserForm.$setUntouched();
-        }
-
-        $scope.refreshCaptcha=function() {
-            userService.getCaptchaImage(captchaSuccessCallback, captchaErrorCallback)
-        }
-
-        $scope.readCaptcha = function () {
-            userService.readCaptcha($scope.captchaOriginalText, readCaptchasuccessCallback, readCaptchaerrorCallback)
-        }
-
-        function readCaptchasuccessCallback(d) {
-            console.log(d);
-        }
-
-        function readCaptchaerrorCallback(d) {
-            console.log(d);
         }
 
         $scope.clearForm = function (form) {
@@ -107,14 +76,10 @@
                 $scope.$errorMessage = "There are still some invald values. Please resolve them to proceed";
                 return;
             }
-            else if ($scope.$isInvalidCaptcha)
-            {
-                $scope.$errorMessage = "Are you Human!!. Please enter valid captcha.";
-                return;
-            }
-
+           
             if (isValid) {
-                userService.createUser($scope.UserId, $scope.Password, $scope.FirstName, $scope.LastName, $scope.Email, $scope.Captcha, $scope.Mobile, $scope.Phone, successCallback, errorCallback);
+                $scope.AddNewUser = true;
+                userService.createUser($scope.UserId, $scope.Password, $scope.FirstName, $scope.LastName, $scope.Email, $scope.Mobile, $scope.Phone, $scope.AddNewUser, successCallback, errorCallback);
                 form.$setPristine();
                 form.$setUntouched();
             } else {
@@ -133,7 +98,7 @@
         function successCallback(data) {
             console.log(data);
             $rootScope.alerts = [];
-            $scope.loginUser($scope.UserId, $scope.Password);
+            //$scope.loginUser($scope.UserId, $scope.Password);
             //$location.path("/registerconfirmation");
         }
 

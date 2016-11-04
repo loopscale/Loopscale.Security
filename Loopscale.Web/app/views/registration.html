@@ -1,0 +1,103 @@
+﻿<div class="row" ng-init="activate" ng-controller="userController">
+    <div class="row page-header">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h1>
+                New Registration
+            </h1>
+        </div>
+    </div>
+    <div class="row admin-header">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <form name="userForm" ng-submit="createUser(userForm.$valid, userForm)" novalidate>
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtEmail.$invalid && (!userForm.txtEmail.$pristine || userForm.$submitted) ||(!userForm.txtEmail.$pristine && $isEmailExists)}">
+                                    <label for="txtEmail" class="control-label">Email</label>
+                                    <input type="email" class="form-control" remotevalidator remote-url="users/UniqueEMail/" name="txtEmail" placeholder="Email Address" ng-model="Email" ng-model-options="{debounce: 1000}" required maxlength="100" />
+                                    <p ng-show="(userForm.txtEmail.$error.email || userForm.txtEmail.$error.required) && (!userForm.txtEmail.$pristine || userForm.$submitted)" class="error help-block">Invalid Email address</p>
+                                    <p ng-show="!userForm.txtUserId.$pristine && $isEmailExists" class="help-block">Email already registerd</p>
+                                    <p ng-show="userForm.txtEmail.$error.remotevalidator" class="help-block">Email already registerd</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtUserId.$invalid && (!userForm.txtUserId.$pristine || userForm.$submitted) ||(!userForm.txtUserId.$pristine && $isUserNameExists) }">
+                                    <label for="txtUsername" class="control-label">User Name:</label>
+                                    <input type="text" class="form-control" name="txtUserId" remotevalidator remote-url="users/UniqueUserName/" placeholder="User Name" maxlength="100" ng-model="UserId" ng-model-options="{debounce: 1000}" servervalidate="userName" required />
+                                    <p ng-show="userForm.txtUserId.$error.required && (!userForm.txtUserId.$pristine || userForm.$submitted)" class="error help-block">Invalid User name</p>
+
+                                    <p ng-show="userForm.txtUserId.$error.remotevalidator" class="help-block">Username already registered</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtPassword.$invalid && (!userForm.txtPassword.$pristine || userForm.$submitted) }">
+                                    <label for="txtPassword" class="control-label">Password</label>
+                                    <input type="password" class="form-control" name="txtPassword" placeholder="Password" ng-model="Password" required>
+                                    <p ng-show="userForm.txtPassword.$invalid && (!userForm.txtPassword.$pristine || userForm.$submitted)" class="error help-block">Password is required</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtConfirmPassword.$invalid && (!userForm.txtConfirmPassword.$pristine || userForm.$submitted) || (!userForm.txtConfirmPassword.$pristine && Password != ConfirmPassword) }">
+                                    <label for="txtConfirmPassword" class="control-label">Confirm Password</label>
+                                    <input type="password" class="form-control" name="txtConfirmPassword" ng-model="ConfirmPassword" ng-model-options="{updateOn: 'mousedown  blur'}" placeholder="Confirm Password" validator="myCustomValidator(userForm.txtConfirmPassword)"
+                                           validate-on="dirty" required>
+                                    <p ng-show="userForm.txtConfirmPassword.$invalid && (!userForm.txtConfirmPassword.$pristine || userForm.$submitted)" class="error help-block">Confirm Password is required</p>
+                                    <p ng-show="!userForm.txtConfirmPassword.$pristine && Password != ConfirmPassword" class="error help-block">Password & Confirm Password should be same.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtFirstName.$invalid && (!userForm.txtFirstName.$pristine || userForm.$submitted) }">
+                                    <label for="txtFirstName" class="control-label">First Name</label>
+                                    <input type="text" class="form-control" name="txtFirstName" placeholder="First Name" ng-model="FirstName" required maxlength="300" />
+                                    <p ng-show="userForm.txtFirstName.$invalid && (!userForm.txtFirstName.$pristine || userForm.$submitted)" class="error help-block">First name is required</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.txtLastName.$invalid && (!userForm.txtLastName.$pristine || userForm.$submitted)}">
+                                    <label for="txtLastName" class="control-label">Last Name</label>
+                                    <input type="text" class="form-control" name="txtLastName" placeholder="Last Name" ng-model="LastName" required maxlength="300" />
+                                    <p ng-show="userForm.txtLastName.$invalid && (!userForm.txtLastName.$pristine || userForm.$submitted)" class="error help-block">Last name is required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error': (userForm.Phone.$touched || userForm.$submitted) && userForm.Phone.$invalid }">
+                                    <label for="Phone" class="control-label">Home Phone</label>
+                                    <input type="text" class="form-control" name="Phone" id="Phone" ui-mask="(999) 999-9999" ui-mask-placeholder ui-mask-placeholder-char="_" maxlength="100" ng-model="Phone" required />
+                                    <p ng-show="userForm.Phone.$invalid && (userForm.Phone.$touched || userForm.$submitted)" class="error help-block">Home Phone is required</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group" ng-class="{ 'has-error': (userForm.Mobile.$touched || userForm.$submitted) && userForm.Mobile.$invalid }">
+                                    <label for="Mobile" class="control-label">Mobile</label>
+                                    <input type="text" class="form-control" name="Mobile" id="Mobile" ui-mask="(999) 999-9999" ui-mask-placeholder ui-mask-placeholder-char="_" maxlength="100" ng-model="Mobile" required />
+                                    <p ng-show="userForm.Mobile.$invalid && (userForm.Mobile.$touched || userForm.$submitted)" class="error help-block">Mobile is required</p>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-right">
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                        <button type="button" ng-click="clearForm(userForm)" class="btn btn-primary">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

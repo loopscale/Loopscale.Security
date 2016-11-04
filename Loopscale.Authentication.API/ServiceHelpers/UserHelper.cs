@@ -5,7 +5,7 @@ using Loopscale.Shared.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 
-namespace Beginnings.Services.ServiceHelpers
+namespace Loopscale.Authentication.API.ServiceHelpers
 {
     public static class UserHelper
     {

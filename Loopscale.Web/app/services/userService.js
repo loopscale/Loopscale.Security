@@ -1,8 +1,6 @@
 ﻿'use strict';
 
-angular
-    .module('app')
-    .factory('userService', userService);
+app.factory('userService', userService);
 
 userService.$inject = ['$http', 'constantFactory'];
 
@@ -14,16 +12,14 @@ function userService($http, constantFactory) {
         isUniqueUser: IsUniqueUser,
         isUniqueEmail: IsUniqueEmail,
         createProfile: createProfile,
-        registerNewParentProfile: registerNewParentProfile,
         listProfile: listProfile,
         getProfileDetail: getProfileDetail,
-        getCaptchaImage: getCaptchaImage,
-        readCaptcha: readCaptcha,
         getImageData: getImageData,
         getAllUserProfiles: getAllUserProfiles,
         getAllRegisteredProfiles: getAllRegisteredProfiles,
         activateProfile: activateProfile,
         searchProfiles: searchProfiles,
+        resetPassword: resetPassword
     };
 
     var baseUrl = constantFactory.serviceBaseUrl();
@@ -44,7 +40,7 @@ function userService($http, constantFactory) {
         $http(req).then(successCallback, errorCallback);
     }
 
-    function createUser(userId, password, firstName, lastName, email, captcha, mobile, phone, successCallback, errorCallback) {
+    function createUser(userId, password, firstName, lastName, email, mobile, phone, addNewUser, successCallback, errorCallback) {
         var user = {
             "UserName": userId,
             "Password": password,
@@ -54,9 +50,9 @@ function userService($http, constantFactory) {
             "DOB": null,
             "Phone": phone,
             "Mobile": mobile,
-            "Captcha": captcha
+            "AddNewUser": addNewUser
         }
-        var postUrl = baseUrl + "api/Users/Add";
+        var postUrl = baseUrl + "api/Users/RegisterNewProfile";
         var req = {
             method: 'POST',
             url: postUrl,
@@ -143,6 +139,24 @@ function userService($http, constantFactory) {
         return $http(req);
     }
 
+    function registerNewProfile(profile, successCallback, errorCallback) {
+
+        var postUrl = baseUrl + "api/users/RegisterNewProfile/";
+        var req = {
+            method: 'POST',
+            url: postUrl,
+            headers: {
+                'Content-Type': "application/json"
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            data: profile
+        }
+
+        $http(req).then(successCallback, errorCallback);
+    }
+
     function createProfile(profile, successCallback, errorCallback) {
 
         console.log(profile);
@@ -179,40 +193,6 @@ function userService($http, constantFactory) {
 
         $http(req).then(successCallback, errorCallback);
 
-    }
-
-    function getCaptchaImage(successCallback, errorCallback) {
-        var postUrl = baseUrl + "api/auth/GetCaptchaText";
-        var req = {
-            method: 'Get',
-            url: postUrl,
-            headers: {
-                'Content-Type': "application/json",
-
-            },
-            xhrFields: {
-                withCredentials: true
-            }
-        }
-
-        $http(req).then(successCallback, errorCallback);
-    }
-
-    function readCaptcha(captchaText, successCallback, errorCallback) {
-        var postUrl = baseUrl + "api/auth/GetCaptchaAudio";
-        var req = {
-            method: 'Get',
-            url: postUrl,
-            params: { captcha: captchaText },
-            headers: {
-                'Content-Type': "application/json"
-            },
-            xhrFields: {
-                withCredentials: true
-            }
-        }
-
-        $http(req).then(successCallback, errorCallback);
     }
 
     function getImageData(imageId, successCallback, errorCallback) {
@@ -280,5 +260,20 @@ function userService($http, constantFactory) {
         }
 
         $http(req).then(successCallback, errorCallback);
+    }
+
+    function resetPassword(passwordModel, successcallback, errorcallBack) {
+        var url = baseUrl + "api/users/ResetPassword";
+
+        var req = {
+            method: 'POST',
+            url: url,
+            headers: {
+                'Content-Type': "application/json"
+            },
+            data: JSON.stringify(passwordModel)
+        }
+
+        $http(req).then(successcallback, errorcallBack);
     }
 }

@@ -99,7 +99,7 @@
     <Content Include="app\controllers\admin\employeeController.js" />
     <Content Include="app\controllers\admin\employeeProfileRegistrationConfirmation.js" />
     <Content Include="app\controllers\common\commonController.js" />
-    <Content Include="app\services\admin\employeeService.js" />
+    <Content Include="app\services\employeeService.js" />
     <Content Include="app\views\admin\dashboard.html" />
     <Content Include="app\views\admin\employeeprofile.html" />
     <Content Include="app\views\admin\employeeprofileregistrationconfirmation.html" />
@@ -107,6 +107,7 @@
     <Content Include="app\views\admin\sidebar.html" />
     <Content Include="app\views\common\footer.html" />
     <Content Include="app\views\common\header.html" />
+    <Content Include="app\views\registration.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -165,9 +166,9 @@
     <Content Include="app\modules\MasterEnums.js" />
     <Content Include="app\modules\remotevalidator.js" />
     <Content Include="app\modules\validationdirective.js" />
-    <Content Include="app\services\common\commonService.js" />
-    <Content Include="app\services\common\loginService.js" />
-    <Content Include="app\services\user\userService.js" />
+    <Content Include="app\services\commonService.js" />
+    <Content Include="app\services\loginService.js" />
+    <Content Include="app\services\userService.js" />
     <Content Include="app\views\login.html" />
     <Content Include="contents\css\loading-bar.css" />
     <Content Include="contents\css\loading-bar.min.css" />

@@ -26,7 +26,7 @@
                     <div class="welcome"><a href="#/"> <span class="gray-text">Login</span></a></div>
                 </li>
 
-                <li ng-show="$root.authenticated">
+                <li ng-show="!$root.authenticated">
                     <div class="welcome"><a href="#/" ui-sref="profile"> <span class="gray-text">Profile</span></a></div>
                 </li>
             </ul>
