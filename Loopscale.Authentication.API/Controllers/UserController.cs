@@ -1,4 +1,11 @@
-﻿using Loopscale.Authentication.API.ModelFactory;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web.Http;
+using Loopscale.Authentication.API.ModelFactory;
 using Loopscale.Authentication.API.ServiceHelpers;
 using Loopscale.DataAccess.EFModel;
 using Loopscale.DataAccess.Repositories;
@@ -8,13 +15,6 @@ using Loopscale.Shared.Helpers;
 using Loopscale.Shared.Logging;
 using Loopscale.Shared.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace Loopscale.Authentication.API.Controllers
 {
@@ -44,6 +44,28 @@ namespace Loopscale.Authentication.API.Controllers
 
             return null;
         }
+
+        /// <summary>
+        /// work in progress
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        [Route("GetProfile")]
+        public IHttpActionResult GetProfile()
+        {
+            var profile = _profileRepo.GetProfileByProfileId(ProfileHelper.GetClaimsProfileId(User.Identity));
+
+            if (profile != null)
+            {
+                var profileModel = ProfileModelFactory.MapToProfileModel(profile);
+
+                return Ok(profileModel);
+            }
+
+            return Ok();
+        }
+
 
         [HttpPost]
         [Authorize]
@@ -107,8 +129,8 @@ namespace Loopscale.Authentication.API.Controllers
         }
 
         [HttpPost]
-        [Route("RegisterNewProfile")]
-        public IHttpActionResult RegisterNewProfile([FromBody] ProfileModel profileModel)
+        [Route("CreateUser")]
+        public IHttpActionResult CreateUser([FromBody] ProfileModel profileModel)
         {
             UserModel userModel = null;
 
@@ -119,7 +141,8 @@ namespace Loopscale.Authentication.API.Controllers
                     userModel = new UserModel
                     {
                         UserName = profileModel.Email,
-                        Password = ConfigurationManager.AppSettings["TempApplicationPassword"].ToString(),
+                        //Password = ConfigurationManager.AppSettings["TempApplicationPassword"].ToString(),
+                        Password = profileModel.Password,
                         FirstName = profileModel.FirstName,
                         LastName = profileModel.LastName,
                         Email = profileModel.Email,

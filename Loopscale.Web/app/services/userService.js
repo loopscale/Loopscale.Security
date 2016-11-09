@@ -12,6 +12,7 @@ function userService($http, constantFactory) {
         isUniqueUser: IsUniqueUser,
         isUniqueEmail: IsUniqueEmail,
         createProfile: createProfile,
+        getProfile: getProfile,
         listProfile: listProfile,
         getProfileDetail: getProfileDetail,
         getImageData: getImageData,
@@ -52,7 +53,7 @@ function userService($http, constantFactory) {
             "Mobile": mobile,
             "AddNewUser": addNewUser
         }
-        var postUrl = baseUrl + "api/Users/RegisterNewProfile";
+        var postUrl = baseUrl + "api/Users/CreateUser";
         var req = {
             method: 'POST',
             url: postUrl,
@@ -139,27 +140,7 @@ function userService($http, constantFactory) {
         return $http(req);
     }
 
-    function registerNewProfile(profile, successCallback, errorCallback) {
-
-        var postUrl = baseUrl + "api/users/RegisterNewProfile/";
-        var req = {
-            method: 'POST',
-            url: postUrl,
-            headers: {
-                'Content-Type': "application/json"
-            },
-            xhrFields: {
-                withCredentials: true
-            },
-            data: profile
-        }
-
-        $http(req).then(successCallback, errorCallback);
-    }
-
     function createProfile(profile, successCallback, errorCallback) {
-
-        console.log(profile);
 
         var postUrl = baseUrl + "api/users/CreateProfile/";
         var req = {
@@ -175,6 +156,25 @@ function userService($http, constantFactory) {
         }
 
         $http(req).then(successCallback, errorCallback);
+    }
+
+    function getProfile(successCallback, errorCallback) {
+        console.log('Service: entering getProfile');
+
+        var postUrl = baseUrl + "api/users/GetProfile";
+        var req = {
+            method: 'Get',
+            url: postUrl,
+            headers: {
+                'Content-Type': "application/json"
+            },
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+
+        $http(req).then(successCallback, errorCallback);
+
     }
 
     function getProfileDetail(profileId, successCallback, errorCallback) {

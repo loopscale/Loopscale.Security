@@ -42,7 +42,6 @@ function loginController($scope, loginService, constantFactory, $window, $locati
                     $window.location.href = url;
                     //$location.path("/dashboard");
 
-
                     $rootScope.spinner = false;
                     $rootScope.login = false;
 

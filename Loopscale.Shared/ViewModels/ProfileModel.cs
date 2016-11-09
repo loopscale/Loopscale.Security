@@ -4,6 +4,7 @@ namespace Loopscale.Shared.ViewModels
 {
     public class ProfileModel
     {
+        public string Password { get; set; }
         public int? RelationshipId { get; set; }
         public string RelationshipName { get; set; }
         public bool AddNewUser { get; set; }

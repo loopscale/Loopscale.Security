@@ -66,6 +66,7 @@ namespace Loopscale.Authentication.API.ServiceHelpers
 
         public static Int64 GetClaimsProfileId(IIdentity identity)
         {
+            //This is how you get Logged-in user profile id. You canuse this id to fetch anything for this profile
             return Convert.ToInt64(((ClaimsIdentity)identity).FindFirst("ProfileId").Value);
         }
     }

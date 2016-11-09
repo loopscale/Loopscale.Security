@@ -31,6 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/app/views/admin/employeeprofile.html'
     })
 
+    .state('editProfile', {
+         url: '/editprofile',
+         controller: 'profileController',
+         templateUrl: '/app/views/profile.html'
+     })
+
     .state('dashboard', {
         url: '/dashboard',
         controller: 'dashboardController',

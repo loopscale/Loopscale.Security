@@ -99,6 +99,9 @@
     <Content Include="app\controllers\admin\employeeController.js" />
     <Content Include="app\controllers\admin\employeeProfileRegistrationConfirmation.js" />
     <Content Include="app\controllers\common\commonController.js" />
+    <Content Include="app\controllers\user\profileController.js" />
+    <Content Include="app\controllers\user\uploadImageController.js" />
+    <Content Include="app\models\profileModel.js" />
     <Content Include="app\services\employeeService.js" />
     <Content Include="app\views\admin\dashboard.html" />
     <Content Include="app\views\admin\employeeprofile.html" />
@@ -107,7 +110,9 @@
     <Content Include="app\views\admin\sidebar.html" />
     <Content Include="app\views\common\footer.html" />
     <Content Include="app\views\common\header.html" />
+    <Content Include="app\views\profile.html" />
     <Content Include="app\views\registration.html" />
+    <Content Include="app\views\uploadImage.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
