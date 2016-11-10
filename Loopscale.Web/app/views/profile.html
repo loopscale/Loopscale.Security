@@ -1,13 +1,53 @@
-﻿<div class="row page-header">
-    <div class="col-xs-12 col-md-12 col-lg-12">
-        <h1>
-            Create Parent/Family Profile
-        </h1>
+﻿<div class="row" ng-init="activate">
+    <div class="row page-header">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h1>
+                New Profile
+            </h1>
+        </div>
     </div>
-</div>
-<div class="row admin-header" ng-init="activate()">
-    <div class="col-md-12" ng-init="getProfile()">
-        Email: <span class="col-xs-7"><u>{{profile.Email}}</u></span>
+    <div class="row admin-header">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-body">
 
-    </div>
+                    <form name="userForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">
+                                    Email:
+                                </label>
+                                <input type="text" id="Email" name="Email" ng-model="profile.Email" />
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label">
+                                    Firstname:
+                                </label>
+                                <input type="text" id="FirstName" name="FirstName" ng-model="profile.FirstName" />
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label">
+                                    Lastname:
+                                </label>
+                                <input type="text" id="LastName" name="LastName" ng-model="profile.LastName" />
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="State" class="control-label">State</label>
+                                <select class="form-control" name="cboStates" id="cboStates" ng-model="profile.StateId">
+                                    <option value="">Select State</option>
+                                    <option ng-repeat="obj in states" value="{{obj.key}}">{{obj.description}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
 </div>

@@ -101,8 +101,10 @@
     <Content Include="app\controllers\common\commonController.js" />
     <Content Include="app\controllers\user\profileController.js" />
     <Content Include="app\controllers\user\uploadImageController.js" />
+    <Content Include="app\models\masterModel.js" />
     <Content Include="app\models\profileModel.js" />
     <Content Include="app\services\employeeService.js" />
+    <Content Include="app\services\masterService.js" />
     <Content Include="app\views\admin\dashboard.html" />
     <Content Include="app\views\admin\employeeprofile.html" />
     <Content Include="app\views\admin\employeeprofileregistrationconfirmation.html" />

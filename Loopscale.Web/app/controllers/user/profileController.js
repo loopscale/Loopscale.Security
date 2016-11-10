@@ -2,10 +2,10 @@
 
 app.controller('profileController', profileController);
 
-profileController.$inject = ['$rootScope', '$stateParams', '$scope', 'userService', 'loginService', 'authProvider', 'constantFactory', '$location', 'commonService'];
+profileController.$inject = ['$rootScope', '$stateParams', '$scope', 'userService', 'loginService', 'authProvider', 'constantFactory', '$location', 'commonService', 'masterService'];
 
 
-function profileController($rootScope, $stateParams, $scope, userService, loginService, authProvider, constantFactory, $location, commonService)
+function profileController($rootScope, $stateParams, $scope, userService, loginService, authProvider, constantFactory, $location, commonService, masterService)
 {
     console.log('entering profileController');
 
@@ -36,14 +36,27 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
         $scope.OfficeZip = "";
         $scope.OfficePhone = "";
         $scope.OfficeEmail = "";
-
         $scope.$isUserNameExists = false;
         $scope.$isEmailExists = false
 
         $scope.action = $stateParams.action;
+        
+        masterService.getAllStates(onStates, errorCallback);
+        getProfile();
+    }
+        
+    function onStates(data) {
+        $scope.states = [];
+        $scope.officeStates = [];
+        $.each(data.data, function (i, obj) {
+            var item = new masterModel();
+            item.update(obj.key, obj.value);
+            $scope.states.push(item);
+            $scope.officeStates.push(item);
+        });
     }
 
-    $scope.getProfile = function getProfile()
+    function getProfile()
     {
         console.log('entering getProfile() controller');
 
@@ -52,45 +65,16 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
 
     function profileloadSuccessCallBack(d) {
         //console.log(d.data.profileTypeId);
-        var data = new profileModel();
-        data.ProfileId = parseInt(d.data.profileId);
-        if (d.data.relationshipId) {
-            data.RelationshipId = d.data.relationshipId.toString();
-        }
-        //data.RelationshipId = d.data.relationshipId.toString();
-        data.ProfileTypeId = d.data.profileTypeId;
-        data.Dob = new Date(d.data.dob);
-        data.Email = d.data.email;
-        data.HomePhone = d.data.homePhone;
-        data.Mobile = d.data.mobile;
-        data.FamilyName = d.data.familyName;
-        data.FirstName = d.data.firstName;
-        data.LastName = d.data.lastName;
-        data.Gender = d.data.gender;
-        data.HomeAddressLine1 = d.data.homeAddressLine1;
-        data.HomeAddressLine2 = d.data.homeAddressLine2;
-        if (d.data.stateId) {
-            data.StateId = d.data.stateId.toString();
-        }
-        data.City = d.data.city;
-        data.Zip = d.data.zip;
-        data.EmployerName = d.data.employerName;
-        data.Occupation = d.data.occupation;
-        data.OfficeAddressLine1 = d.data.officeAddressLine1;
-        data.OfficeAddressLine2 = d.data.officeAddressLine2;
-        if (d.data.officeStateId) {
-            data.OfficeStateId = d.data.officeStateId.toString();
-        }
-        data.OfficeCity = d.data.officeCity;
-        data.OfficeZip = d.data.officeZip;
-        data.OfficePhone = d.data.officePhone;
-        data.OfficeEmail = d.data.officeEmail;
-        $scope.profile = data;
+        var profile = new profileModel();
+        profile.update(d.data);
 
-        showHideField();
-        getProfileImage(d.data.imageId);
+        $scope.profile = profile;
 
-        console.log('-----' + data.Email);
+        console.log($scope.profile);
+        //showHideField();
+        //getProfileImage(d.data.imageId);
+
+        //console.log('-----' + data.Email);
     }
 
     function getProfileImage(imageId) {
@@ -116,6 +100,13 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
             'msg': "Unable to load Profile detail"
         });
         clearProfileData();
+    }
+
+    function errorCallback(d) {
+        $scope.alerts.push({
+            'type': 'danger',
+            'msg': "Unable to process"
+        });
     }
 
     function clearProfileData() {
