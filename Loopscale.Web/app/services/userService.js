@@ -12,6 +12,7 @@ function userService($http, constantFactory) {
         isUniqueUser: IsUniqueUser,
         isUniqueEmail: IsUniqueEmail,
         createProfile: createProfile,
+        updateProfile: updateProfile,
         getProfile: getProfile,
         listProfile: listProfile,
         getProfileDetail: getProfileDetail,
@@ -143,6 +144,24 @@ function userService($http, constantFactory) {
     function createProfile(profile, successCallback, errorCallback) {
 
         var postUrl = baseUrl + "api/users/CreateProfile/";
+        var req = {
+            method: 'POST',
+            url: postUrl,
+            headers: {
+                'Content-Type': "application/json"
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            data: profile
+        }
+
+        $http(req).then(successCallback, errorCallback);
+    }
+
+    function updateProfile(profile, successCallback, errorCallback) {
+        console.log('Update Profile Service');
+        var postUrl = baseUrl + "api/users/UpdateProfile/";
         var req = {
             method: 'POST',
             url: postUrl,

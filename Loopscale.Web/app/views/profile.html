@@ -1,4 +1,4 @@
-﻿<div class="row" ng-init="activate">
+﻿<div class="row">
     <div class="row page-header">
         <div class="col-xs-12 col-md-12 col-lg-12">
             <h1>
@@ -12,42 +12,107 @@
                 <div class="panel-body">
 
                     <form name="userForm" novalidate>
+
                         <div class="row">
-                            <div class="col-md-6">
-                                <label class="control-label">
-                                    Email:
-                                </label>
-                                <input type="text" id="Email" name="Email" ng-model="profile.Email" />
-
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Firstname:</label>
+                                    <input type="text" id="FirstName" name="FirstName" ng-model="profile.FirstName" class="form-control" required />
+                                </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="control-label">
-                                    Firstname:
-                                </label>
-                                <input type="text" id="FirstName" name="FirstName" ng-model="profile.FirstName" />
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Lastname:</label>
+                                    <input type="text" id="LastName" name="LastName" ng-model="profile.LastName" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Address Line 1:</label>
+                                    <input type="text" id="HomeAddressLine1" name="LastName" ng-model="profile.HomeAddressLine1" class="form-control" required />
+                                </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="control-label">
-                                    Lastname:
-                                </label>
-                                <input type="text" id="LastName" name="LastName" ng-model="profile.LastName" />
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Address Line 2:</label>
+                                    <input type="text" id="HomeAddressLine2" name="HomeAddressLine2" ng-model="profile.HomeAddressLine2" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
 
+
+                        <div class="row">
+                            
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="State" class="control-label">State</label>
+                                    <select name="cboStates" id="cboStates" ng-model="profile.StateId" class="form-control">
+                                        <option value="">Select State</option>
+                                        <option ng-repeat="obj in states" value="{{obj.key}}">{{obj.description}}</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label for="State" class="control-label">State</label>
-                                <select class="form-control" name="cboStates" id="cboStates" ng-model="profile.StateId">
-                                    <option value="">Select State</option>
-                                    <option ng-repeat="obj in states" value="{{obj.key}}">{{obj.description}}</option>
-                                </select>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Zip:</label>
+                                    <input type="text" id="Zip" name="zip" ng-model="profile.Zip" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Email:</label>
+                                    <input type="email" id="Email" name="Email" ng-model="profile.Email" class="form-control" required readonly />
+
+                                </div>
                             </div>
 
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Phone:</label>
+                                    <input type="text" id="HomePhone" name="HomePhone" ng-model="profile.HomePhone" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label">Mobile:</label>
+                                    <input type="text" id="Mobile" name="Mobile" ng-model="profile.Mobile" class="form-control" required />
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-right">
+                                        <button type="submit" ng-click="updateProfile()" class="btn btn-primary">Update</button>
+                                        <button type="button" ng-click="clearForm(userForm)" class="btn btn-primary">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
+
             </div>
-            </div>
+        </div>
+    </div>
 </div>

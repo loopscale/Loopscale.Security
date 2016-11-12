@@ -1,9 +1,6 @@
-﻿(function () {
-    'use strict';
+﻿'use strict';
 
-    angular
-        .module('app')
-        .factory('masterService', masterService);
+app.factory('masterService', masterService);
 
     masterService.$inject = ['$http', 'loginService', 'constantFactory', '$q', '$rootScope'];
 
@@ -53,5 +50,5 @@
             $http(req).then(successCallback, errorCallback);
         }
     }
-})();
+
 

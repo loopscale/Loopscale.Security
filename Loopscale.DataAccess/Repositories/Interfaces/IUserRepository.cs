@@ -16,7 +16,7 @@ namespace Loopscale.DataAccess.Repositories.Interfaces
         Profile GetProfileByEmailId(string emailId);
         Profile AddProfile(Profile profile);
         Profile AddProfileOnUserRegistration(Profile profile);
-        bool UpdateProfile(long profileId, Profile profile);
+        bool UpdateProfile(Profile profile);
         IEnumerable<Profile> GetProfilesByRoleId(string roleId);
         bool ActivateProfile(string userId);
         IEnumerable<Profile> GetAllRegisteredProfiles(string email);

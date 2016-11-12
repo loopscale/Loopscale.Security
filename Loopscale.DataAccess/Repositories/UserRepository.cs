@@ -95,9 +95,9 @@ namespace Loopscale.DataAccess.Repositories
             return null;
         }
 
-        public bool UpdateProfile(long profileId, Profile updatedProfile)
+        public bool UpdateProfile(Profile updatedProfile)
         {
-            var profile = _db.Profiles.FirstOrDefault(u => u.ProfileId == profileId);
+            var profile = _db.Profiles.FirstOrDefault(u => u.ProfileId == updatedProfile.ProfileId);
 
             if (profile != null)
             {

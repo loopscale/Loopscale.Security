@@ -12,36 +12,11 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
     //write activate function
     function activate() {
         //alert("Here");
-        $scope.ProfileId = "";
-        $scope.profileTypeId = "";
-        $scope.Dob = "";
-        $scope.Email = "";
-        $scope.HomePhone = "";
-        $scope.Mobile = "";
-        $scope.FamilyName = "";
-        $scope.FirstName = "";
-        $scope.LastName = "";
-        $scope.Gender = "";
-        $scope.HomeAddressLine1 = "";
-        $scope.HomeAddressLine2 = "";
-        $scope.City = "";
-        $scope.StateId = "";
-        $scope.Zip = "";
-        $scope.EmployerName = "";
-        $scope.Occupation = "";
-        $scope.OfficeAddressLine1 = "";
-        $scope.OfficeAddressLine2 = "";
-        $scope.OfficeStateId = "";
-        $scope.OfficeCity = "";
-        $scope.OfficeZip = "";
-        $scope.OfficePhone = "";
-        $scope.OfficeEmail = "";
-        $scope.$isUserNameExists = false;
-        $scope.$isEmailExists = false
-
+      
         $scope.action = $stateParams.action;
         
         masterService.getAllStates(onStates, errorCallback);
+
         getProfile();
     }
         
@@ -63,13 +38,25 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
         userService.getProfile(profileloadSuccessCallBack, profileLoadErrorCallBack);
     }
 
+    $scope.updateProfile = function()
+    {
+        //put this to the http data object;;;
+        console.log($scope.profile);
+       // userService.updateProfile($scope.profile);
+        console.log('Update Profile Executed.....');
+    }
+
     function profileloadSuccessCallBack(d) {
         //console.log(d.data.profileTypeId);
         var profile = new profileModel();
+
+        console.log("d.data");
+        console.log(d.data);
         profile.update(d.data);
 
         $scope.profile = profile;
 
+        console.log("after update");
         console.log($scope.profile);
         //showHideField();
         //getProfileImage(d.data.imageId);

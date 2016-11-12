@@ -111,16 +111,42 @@ namespace Loopscale.Authentication.API.Controllers
                 ImageId = imageName
             };
 
-            if (profileModel.ProfileId > 0)
-            {
-                p.ProfileId = profileModel.ProfileId;
-                _profileRepo.UpdateProfile(profileModel.ProfileId, p);
+           
+            _profileRepo.AddProfile(p);
+            
 
-            }
-            else
+            return Ok(new
             {
-                _profileRepo.AddProfile(p);
-            }
+                isSuccess = true
+            });
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("UpdateProfile")]
+        public IHttpActionResult UpdateProfile(Profile profileModel)
+        {
+            var imageName = "";
+
+            //if (profile.Photo != null)
+            //{
+            //    imageName = ImageHelper.SaveImageFromStream(profileModel.Photo);
+            //}
+
+            var p = _profileRepo.GetProfileByProfileId(ProfileHelper.GetClaimsProfileId(User.Identity));
+
+            p.FirstName = profileModel.FirstName;
+            p.LastName = profileModel.LastName;
+            p.HomeAddressLine1 = profileModel.HomeAddressLine1;
+            p.HomeAddressLine2 = profileModel.HomeAddressLine2;
+            p.City = profileModel.City;
+            p.StateId = profileModel.StateId;
+            p.Mobile = profileModel.Mobile;
+            p.HomePhone = profileModel.HomePhone;
+            p.Email = profileModel.Email;
+            
+            _profileRepo.UpdateProfile(p);
+            
 
             return Ok(new
             {
