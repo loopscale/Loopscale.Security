@@ -17,16 +17,14 @@
                     <a href="#/" ui-sref="register"><span class="gray-text">Register</span></a>
                 </li>
                 <li ng-show="$root.authenticated">
-                    <a href="#/" ui-sref="profile"><span class="gray-text">Profile</span></a>
+                    <a href="#/" ui-sref="editProfile"><span class="gray-text">Profile</span></a>
                 </li>
                 <li ng-show="$root.authenticated">
                     <a href="#/" ng-click="logOut()"> <span class="gray-text">Logout</span></a>
                 </li>
-
                 <li ng-show="!$root.authenticated">
                     <a href="#/"> <span class="gray-text">Login</span></a>
                 </li>
-
                 <li ng-show="!$root.authenticated">
                     <a href="#/" ui-sref="profile"> <span class="gray-text">Profile</span></a>
                 </li>

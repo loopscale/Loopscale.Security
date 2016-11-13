@@ -4,11 +4,8 @@ app.controller('profileController', profileController);
 
 profileController.$inject = ['$rootScope', '$stateParams', '$scope', 'userService', 'loginService', 'authProvider', 'constantFactory', '$location', 'commonService', 'masterService'];
 
-
 function profileController($rootScope, $stateParams, $scope, userService, loginService, authProvider, constantFactory, $location, commonService, masterService)
 {
-    console.log('entering profileController');
-
     //write activate function
     function activate() {
         //alert("Here");
@@ -42,7 +39,7 @@ function profileController($rootScope, $stateParams, $scope, userService, loginS
     {
         //put this to the http data object;;;
         console.log($scope.profile);
-       // userService.updateProfile($scope.profile);
+        userService.updateProfile($scope.profile);
         console.log('Update Profile Executed.....');
     }
 

@@ -141,6 +141,7 @@ namespace Loopscale.Authentication.API.Controllers
             p.HomeAddressLine2 = profileModel.HomeAddressLine2;
             p.City = profileModel.City;
             p.StateId = profileModel.StateId;
+            p.Zip = profileModel.Zip;
             p.Mobile = profileModel.Mobile;
             p.HomePhone = profileModel.HomePhone;
             p.Email = profileModel.Email;
